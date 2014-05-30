@@ -1,0 +1,78 @@
+Name         : kf5-ktexteditor
+Version      : 4.99.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KDE Frameworks 5 Tier 3 advanced embeddable text editor
+Description  : |
+  KDE Frameworks 5 Tier 3 advanced embeddable text editor
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - kf5-karchive-devel
+    - kf5-kconfig-devel
+    - kf5-kguiaddons-devel
+    - kf5-ki18n-devel
+    - kf5-kio-devel
+    - kf5-kparts-devel
+    - kf5-sonnet-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+    - Qt5Script
+Requires:
+    - kf5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc COPYING.LIB README.md"
+    - "%{_sysconfdir}/xdg/kate*"
+    - "%{_kf5_libdir}/libKF5TextEditor.so.*"
+    - "%{_kf5_plugindir}/katepart.so"
+    - "%{_kf5_datadir}/kservices5/katepart.desktop"
+    - "%{_kf5_datadir}/kservicetypes5/*.desktop"
+    - "%{_kf5_datadir}/katepart5/script/"
+    - "%{_kf5_datadir}/katepart5/syntax/"
+    - "%{_kf5_datadir}/katepart/katepart5ui.rc"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Requires:
+         - kf5-kparts-devel
+      Files:
+          - "%{_kf5_libdir}/libKF5TextEditor.so"
+          - "%{_kf5_libdir}/cmake/KF5TextEditor"
+          - "%{_kf5_includedir}/ktexteditor_version.h"
+          - "%{_kf5_includedir}/KTextEditor"
+          - "%{_datadir}/qt5/mkspecs/modules/*.pri"
