@@ -55,7 +55,7 @@ Files:
     - "%doc COPYING.LIB README.md"
     - "%{_sysconfdir}/xdg/kate*"
     - "%{_kf5_libdir}/libKF5TextEditor.so.*"
-    - "%{_qt5_plugindir}/katepart.so"
+    - "%{_kf5_plugindir}/parts/katepart.so"
     - "%{_kf5_datadir}/kservices5/katepart.desktop"
     - "%{_kf5_datadir}/kservicetypes5/*.desktop"
     - "%{_kf5_datadir}/katepart5/script/"
