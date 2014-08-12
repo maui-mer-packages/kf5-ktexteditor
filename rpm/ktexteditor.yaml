@@ -1,5 +1,5 @@
-Name         : kf5-ktexteditor
-Version      : 5.0.0
+Name         : ktexteditor
+Version      : 5.1.0
 Release      : 1
 Group        : System/Base
 License      : GPLv2+
@@ -25,13 +25,13 @@ PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
-    - kf5-karchive-devel
-    - kf5-kconfig-devel
-    - kf5-kguiaddons-devel
-    - kf5-ki18n-devel
-    - kf5-kio-devel
-    - kf5-kparts-devel
-    - kf5-sonnet-devel
+    - karchive-devel
+    - kconfig-devel
+    - kguiaddons-devel
+    - ki18n-devel
+    - kio-devel
+    - kparts-devel
+    - sonnet-devel
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus
@@ -55,12 +55,11 @@ Files:
     - "%doc COPYING.LIB README.md"
     - "%{_sysconfdir}/xdg/kate*"
     - "%{_kf5_libdir}/libKF5TextEditor.so.*"
-    - "%{_kf5_plugindir}/parts/katepart.so"
-    - "%{_kf5_datadir}/kservices5/katepart.desktop"
-    - "%{_kf5_datadir}/kservicetypes5/*.desktop"
-    - "%{_kf5_datadir}/katepart5/script/"
-    - "%{_kf5_datadir}/katepart5/syntax/"
-    - "%{_kf5_datadir}/katepart/katepart5ui.rc"
+    - "%{_kf5_plugindir}/*"
+    - "%{_kf5_servicesdir}/katepart.desktop"
+    - "%{_kf5_servicetypesdir}/*.desktop"
+    - "%{_kf5_sharedir}/katepart5/*"
+    - "%{_kf5_sharedir}/kxmlgui5/*"
 
 SubPackages:
     - Name: devel
@@ -70,10 +69,10 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Requires:
-         - kf5-kparts-devel
+         - kparts-devel
       Files:
           - "%{_kf5_libdir}/libKF5TextEditor.so"
-          - "%{_kf5_libdir}/cmake/KF5TextEditor"
+          - "%{_kf5_cmakedir}/KF5TextEditor"
           - "%{_kf5_includedir}/ktexteditor_version.h"
           - "%{_kf5_includedir}/KTextEditor"
-          - "%{_datadir}/qt5/mkspecs/modules/*.pri"
+          - "%{_kf5_mkspecsdir}/*.pri"
