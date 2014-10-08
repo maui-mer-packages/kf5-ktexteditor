@@ -7,7 +7,6 @@ Summary      : KDE Frameworks 5 Tier 3 advanced embeddable text editor
 Description  : |
   KDE Frameworks 5 Tier 3 advanced embeddable text editor
 URL          : http://www.kde.org
-SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
