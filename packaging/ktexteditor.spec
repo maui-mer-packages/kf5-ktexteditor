@@ -82,7 +82,9 @@ rm -rf %{buildroot}
 # >> install post
 # << install post
 
-%files
+%find_lang ktexteditor5_qt --with-qt --all-name || :
+
+%files -f ktexteditor5_qt.lang
 %defattr(-,root,root,-)
 %doc COPYING.LIB README.md
 %{_sysconfdir}/xdg/kate*

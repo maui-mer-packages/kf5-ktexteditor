@@ -51,6 +51,9 @@ RequiresPost:
 RequiresPostUn:
     - /sbin/ldconfig
 
+LocaleName: ktexteditor5_qt
+LocaleOptions: "--with-qt --all-name || :"
+
 Files:
     - "%doc COPYING.LIB README.md"
     - "%{_sysconfdir}/xdg/kate*"
